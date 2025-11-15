@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Pacifico', cursive;
+  background: linear-gradient(to bottom, #ff99cc, #ffccff);
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+
+.btn {
+  padding: 15px 25px;
+  border: none;
+  background: #ff66cc;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.btn:hover { background: #ff80d5; }
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  transition: margin 0.5s ease-out;
+  background: linear-gradient(to bottom, #ff99cc, #ffccff);
+}
+
+.screen.up { margin-top: -100vh; }
+
+.bug-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  gap: 20px;
+}
+
+.choose-bug-btn {
+  font-size: 50px;
+  background: transparent;
+  border: 2px solid #ff66cc;
+  border-radius: 15px;
+  width: 120px;
+  height: 120px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.choose-bug-btn:hover { background: #ff66cc; }
+
+.time, .score {
+  position: absolute;
+  top: 20px;
+  font-size: 18px;
+  color: #ff3399;
+}
+
+.time { left: 20px; }
+.score { right: 20px; }
+
+.message {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -150%);
+  background-color: rgba(255, 105, 180, 0.7);
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+  opacity: 0;
+  transition: transform 0.4s ease-in, opacity 0.4s ease-in;
+}
+
+.message.visible {
+  transform: translate(-50%, 150%);
+  opacity: 1;
+}
+
+.game-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  overflow: hidden;
+}
+
+.bug {
+  position: absolute;
+  font-size: 60px;
+  cursor: pointer;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.bug.caught { transform: translate(-50%, -50%) scale(0); }
+@keyframes wiggle {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  25% { transform: translate(-50%, -50%) rotate(10deg); }
+  50% { transform: translate(-50%, -50%) rotate(-10deg); }
+  75% { transform: translate(-50%, -50%) rotate(10deg); }
+  100% { transform: translate(-50%, -50%) rotate(0deg); }
+}
+
+.bug {
+  animation: wiggle 1.5s infinite ease-in-out;
+}
+
